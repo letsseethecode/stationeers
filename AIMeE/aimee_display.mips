@@ -1,0 +1,29 @@
+alias Aimee d0
+
+define Display -815193061
+
+init:
+sbn Display HASH("A Display X") Mode 0
+sbn Display HASH("A Display Y") Mode 0
+sbn Display HASH("A Display Z") Mode 0
+sbn Display HASH("A Display Command") Mode 0
+sbn Display HASH("A Display Mode") Mode 0
+sbn Display HASH("A Display Power") Mode 1
+
+main:
+yield
+l r0 Aimee PositionX
+l r1 Aimee PositionY
+l r2 Aimee PositionZ
+# l r3 Aimee Setting
+l r4 Aimee Mode
+ls r5 Aimee 0 ChargeRatio
+
+sbn Display HASH("A Display X") Setting r0
+sbn Display HASH("A Display Y") Setting r1
+sbn Display HASH("A Display Z") Setting r2
+sbn Display HASH("A Display Command") Setting -1
+sbn Display HASH("A Display Mode") Setting r4
+sbn Display HASH("A Display Power") Setting r5
+
+j main

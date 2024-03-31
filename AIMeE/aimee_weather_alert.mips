@@ -1,0 +1,23 @@
+# Weather Display
+
+alias WeatherStation d0
+alias WeatherModeDisplay d1
+alias WeatherTimeDisplay d2
+alias WarningLight d3
+
+init:
+s WeatherModeDisplay Setting -1
+s WeatherTimeDisplay Setting -2
+s WarningLight On 0
+
+main:
+yield
+l r0 WeatherStation Mode
+l r1 WeatherStation NextWeatherEventTime
+sgtz r2 r0
+
+s WeatherModeDisplay Setting r0
+s WeatherTimeDisplay Setting r1
+s WarningLight On r2
+
+j main
